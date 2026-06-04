@@ -18,16 +18,6 @@
 
 ---
 
-# 📸 Screenshot
-
-<div align="center">
-
-<img src="screenshots/home_screen.png" width="320" alt="Product List Screen"/>
-
-</div>
-
----
-
 # 📌 About the Project
 
 **Product Showcase** is a simple Flutter application created as part of the **bdapps National Android Development Bootcamp 2026**.
@@ -62,10 +52,6 @@ product_showcase/
 │
 ├── lib/
 │   └── main.dart
-│
-├── screenshots/
-│   └── home_screen.png
-│
 ├── pubspec.yaml
 └── README.md
 ```
