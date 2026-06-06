@@ -82,9 +82,9 @@ class _CountBadge extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
       decoration: BoxDecoration(
-        color: AppColors.gold.withOpacity(0.18),
+        color: AppColors.gold.withValues(alpha: 0.18),
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: AppColors.gold.withOpacity(0.45)),
+        border: Border.all(color: AppColors.gold.withValues(alpha:0.45)),
       ),
       child: Text(
         count == 0 ? 'Loading products…' : '$count products available',
@@ -131,7 +131,7 @@ class _DecorCircle extends StatelessWidget {
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           border: Border.all(
-            color: Colors.white.withOpacity(opacity),
+            color: Colors.white.withValues(alpha: opacity),
             width: 1.2,
           ),
         ),

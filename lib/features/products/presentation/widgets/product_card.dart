@@ -159,11 +159,11 @@ class _FavouriteButton extends StatelessWidget {
         width: 32,
         height: 32,
         decoration: BoxDecoration(
-          color: Colors.white.withOpacity(0.92),
+          color: Colors.white.withValues(alpha:0.92),
           shape: BoxShape.circle,
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.10),
+              color: Colors.black.withValues(alpha:0.10),
               blurRadius: 6,
               offset: const Offset(0, 2),
             ),
@@ -248,7 +248,7 @@ class _RatingBadge extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.ratingBackground,
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: AppColors.gold.withOpacity(0.35)),
+        border: Border.all(color: AppColors.gold.withValues(alpha:0.35)),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
