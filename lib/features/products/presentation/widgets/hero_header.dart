@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/constants/app_colors.dart';
 
-/// Collapsible hero section displayed inside the [SliverAppBar].
+/// Premium hero section for the product catalog [SliverAppBar].
 ///
-/// Shows a gradient background with decorative circles, a product-count badge,
-/// and a two-line marketing headline.
+/// Design language: refined dark luxury — deep gradient, a single geometric
+/// accent line, and tight two-level typography. Deliberately minimal copy.
 class HeroHeader extends StatelessWidget {
   const HeroHeader({super.key, required this.productCount});
 
@@ -18,47 +18,76 @@ class HeroHeader extends StatelessWidget {
         gradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
+          stops: [0.0, 0.55, 1.0],
           colors: AppColors.heroGradient,
         ),
       ),
       child: Stack(
+        fit: StackFit.expand,
         children: [
-          // ── Decorative circles ───────────────────────────────────────────
-          const _DecorCircle(size: 160, opacity: 0.06, top: -30, right: -30),
-          const _DecorCircle(size: 100, opacity: 0.08, bottom: 10, right: 60),
-          const _DecorCircle(size: 48, opacity: 0.12, top: 44, right: 110),
-          const _DecorCircle(size: 24, opacity: 0.18, top: 80, right: 64),
+          // ── Geometric accent — diagonal bars ─────────────────────────────
+          Positioned(
+            right: -40,
+            top: 0,
+            bottom: 0,
+            child: Transform.rotate(
+              angle: 0.38, // ~22 degrees
+              child: Container(
+                width: 3,
+                color: AppColors.gold.withValues(alpha: 0.28),
+              ),
+            ),
+          ),
+          Positioned(
+            right: 28,
+            top: 0,
+            bottom: 0,
+            child: Transform.rotate(
+              angle: 0.38,
+              child: Container(
+                width: 1,
+                color: AppColors.gold.withValues(alpha: 0.12),
+              ),
+            ),
+          ),
+
+          // ── Large faint circle — top-right anchor ─────────────────────
+          Positioned(
+            right: -56,
+            top: -56,
+            child: Container(
+              width: 220,
+              height: 220,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(
+                  color: Colors.white.withValues(alpha: 0.05),
+                  width: 1.5,
+                ),
+              ),
+            ),
+          ),
 
           // ── Content ──────────────────────────────────────────────────────
           Padding(
-            padding: const EdgeInsets.fromLTRB(22, 72, 22, 60),
+            padding: const EdgeInsets.fromLTRB(24, 0, 24, 52),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                // Product count badge
-                _CountBadge(count: productCount),
-                const SizedBox(height: 10),
+                // Status pill
+                _StatusPill(count: productCount),
+                const SizedBox(height: 12),
 
-                // Headline
+                // Primary headline
                 const Text(
                   'Premium\nTech Store',
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 26,
+                    fontSize: 28,
                     fontWeight: FontWeight.w800,
-                    height: 1.2,
-                    letterSpacing: 0.3,
-                  ),
-                ),
-                const SizedBox(height: 4),
-                const Text(
-                  'Browse the latest devices',
-                  style: TextStyle(
-                    color: Colors.white60,
-                    fontSize: 13,
-                    fontWeight: FontWeight.w400,
-                    letterSpacing: 0.2,
+                    height: 1.15,
+                    letterSpacing: -0.3,
                   ),
                 ),
               ],
@@ -70,72 +99,40 @@ class HeroHeader extends StatelessWidget {
   }
 }
 
-// ─── Badge ────────────────────────────────────────────────────────────────────
+// ─── Status pill ──────────────────────────────────────────────────────────────
 
-class _CountBadge extends StatelessWidget {
-  const _CountBadge({required this.count});
+class _StatusPill extends StatelessWidget {
+  const _StatusPill({required this.count});
 
   final int count;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-      decoration: BoxDecoration(
-        color: AppColors.gold.withValues(alpha: 0.18),
-        borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: AppColors.gold.withValues(alpha:0.45)),
-      ),
-      child: Text(
-        count == 0 ? 'Loading products…' : '$count products available',
-        style: const TextStyle(
-          color: AppColors.gold,
-          fontSize: 11,
-          fontWeight: FontWeight.w600,
-          letterSpacing: 0.8,
-        ),
-      ),
-    );
-  }
-}
+    final label = count == 0 ? 'Loading…' : '$count Items';
 
-// ─── Decorative circle ────────────────────────────────────────────────────────
-
-class _DecorCircle extends StatelessWidget {
-  const _DecorCircle({
-    required this.size,
-    required this.opacity,
-    this.top,
-    this.bottom,
-    this.left,
-    this.right,
-  });
-
-  final double size;
-  final double opacity;
-  final double? top;
-  final double? bottom;
-  final double? left;
-  final double? right;
-
-  @override
-  Widget build(BuildContext context) {
-    return Positioned(
-      top: top,
-      bottom: bottom,
-      left: left,
-      right: right,
-      child: Container(
-        width: size,
-        height: size,
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          border: Border.all(
-            color: Colors.white.withValues(alpha: opacity),
-            width: 1.2,
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        // Gold accent dot
+        Container(
+          width: 6,
+          height: 6,
+          decoration: const BoxDecoration(
+            color: AppColors.gold,
+            shape: BoxShape.circle,
           ),
         ),
-      ),
+        const SizedBox(width: 7),
+        Text(
+          label.toUpperCase(),
+          style: TextStyle(
+            color: Colors.white.withValues(alpha: 0.70),
+            fontSize: 10,
+            fontWeight: FontWeight.w600,
+            letterSpacing: 1.6,
+          ),
+        ),
+      ],
     );
   }
 }
