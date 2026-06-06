@@ -27,7 +27,7 @@
 ## Screenshot
 
 <div align="center">
-<img src="screenshot.png" alt="Amar Bazaar App Screenshot" width="320"/>
+<img src="./screenshot.jpeg" alt="Amar Bazaar App Screenshot" width="320"/>
 </div>
 
 ---
