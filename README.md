@@ -156,7 +156,7 @@ No unnecessary packages. Every dependency earns its place.
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/amar_bazaar.git
+git clone https://github.com/shahjalal-mahmud/amar_bazaar.git
 cd amar_bazaar
 
 # Install dependencies
