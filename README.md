@@ -1,96 +1,148 @@
 <div align="center">
 
-# 🛒 Product Showcase
+# 🛍️ Product Catalog
 
-**A simple Flutter product listing application**
+### Modern Flutter Product Listing App
 
-*Built for the bdapps National Android Development Bootcamp 2026*
-*Flutter Assignment — Dynamic Product List UI*
+*A clean and responsive product showcase application powered by REST API integration.*
+
+**bdapps National Android Development Bootcamp 2026 — Flutter Assignment**
 
 ---
 
 ![Flutter](https://img.shields.io/badge/Flutter-3.0+-02569B?style=for-the-badge\&logo=flutter\&logoColor=white)
 ![Dart](https://img.shields.io/badge/Dart-3.0+-0175C2?style=for-the-badge\&logo=dart\&logoColor=white)
+![API](https://img.shields.io/badge/REST-API-FF6F00?style=for-the-badge)
 ![Material 3](https://img.shields.io/badge/Material_3-Design-6C3EF4?style=for-the-badge\&logo=materialdesign\&logoColor=white)
-![License](https://img.shields.io/badge/License-Educational-green?style=for-the-badge)
+![Educational](https://img.shields.io/badge/Project-Educational-success?style=for-the-badge)
 
 </div>
 
 ---
 
-# 📌 About the Project
+# 📖 Overview
 
-**Product Showcase** is a simple Flutter application created as part of the **bdapps National Android Development Bootcamp 2026**.
+**Product Catalog** is a Flutter application developed as part of the **bdapps National Android Development Bootcamp 2026**.
 
-The application demonstrates how to display a dynamic list of products using Flutter widgets and Dart collections. Product information is stored locally inside a Dart `List` and rendered dynamically using Flutter's list-building capabilities.
+The application fetches product information from a remote REST API and displays it in a visually appealing, scrollable product catalog. It demonstrates how Flutter can be used to consume APIs, manage asynchronous data, and build modern responsive user interfaces.
 
-Each product card displays:
+The app focuses on real-world Flutter development practices including:
 
-* Product image (loaded from a network URL)
-* Product name
-* Product price
-
-The project focuses on fundamental Flutter concepts including UI building, lists, widgets, and dynamic data rendering.
+* API Integration
+* JSON Parsing
+* Network Image Loading
+* Dynamic UI Rendering
+* Loading & Error Handling
+* Responsive Material 3 Design
 
 ---
 
 # ✨ Features
 
-* 📦 Dynamic product list
-* 🌐 Product images loaded from network URLs
-* 💰 Product name and price display
-* 📱 Responsive Material Design UI
-* ⚡ Lightweight and beginner-friendly implementation
-* 🎯 Uses Dart collections for local data storage
+### 📦 Product Listing
+
+Display products dynamically fetched from a REST API.
+
+### 🌐 API Integration
+
+Retrieve product information from an online endpoint using HTTP requests.
+
+### 🖼️ Product Images
+
+Load and cache product images directly from network URLs.
+
+### 💰 Price Display
+
+Show formatted product pricing information.
+
+### 📱 Responsive UI
+
+Optimized for different screen sizes and orientations.
+
+### ⏳ Loading State
+
+User-friendly loading indicators while fetching data.
+
+### ⚠️ Error Handling
+
+Gracefully handles network failures and API errors.
+
+### 🎨 Modern Design
+
+Built using Material 3 design principles with polished card layouts and clean typography.
 
 ---
 
-# 🗂️ Project Structure
+# 📸 UI Highlights
+
+* Material 3 Design System
+* Modern Product Cards
+* Rounded Corners & Elevation
+* Responsive Layout
+* Network Image Support
+* Smooth Scrolling Experience
+* Clean Typography
+* Professional Color Palette
+* Loading & Error States
+
+---
+
+# 🏗️ Project Structure
 
 ```text
-product_showcase/
+product_catalog/
 │
 ├── lib/
+│   ├── models/
+│   │   └── product.dart
+│   │
+│   ├── services/
+│   │   └── api_service.dart
+│   │
+│   ├── screens/
+│   │   └── home_screen.dart
+│   │
+│   ├── widgets/
+│   │   └── product_card.dart
+│   │
 │   └── main.dart
+│
 ├── pubspec.yaml
 └── README.md
 ```
 
 ---
 
-# 🗃️ Product Data Structure
+# 🔗 API Integration
 
-The application stores product information inside a Dart `List<Map<String, dynamic>>`.
+Products are retrieved from a REST API endpoint and converted into Dart model objects.
 
-```dart
-final List<Map<String, dynamic>> products = [
-  {
-    "name": "iPhone 15 Pro",
-    "price": 149999,
-    "image":
-        "https://images.unsplash.com/photo-example-1",
-  },
-  {
-    "name": "Samsung Galaxy S24",
-    "price": 119999,
-    "image":
-        "https://images.unsplash.com/photo-example-2",
-  },
-];
+Example Product Response:
+
+```json
+{
+  "id": 1,
+  "title": "iPhone 15 Pro",
+  "price": 149999,
+  "image": "https://example.com/product.jpg"
+}
 ```
 
-The UI is generated dynamically by iterating through this list and creating product cards for each item.
+The application fetches data asynchronously and updates the UI automatically after receiving the response.
 
 ---
 
-# 🎨 UI Highlights
+# 🧩 Core Flutter Concepts Demonstrated
 
-* Material 3 design language
-* Modern card-based layout
-* Rounded product cards
-* Clean spacing and typography
-* Network image loading
-* Scrollable product list
+* Stateless Widgets
+* Stateful Widgets
+* FutureBuilder
+* HTTP Requests
+* JSON Serialization
+* ListView.builder
+* Network Images
+* Material 3 Components
+* Responsive Layout Design
 
 ---
 
@@ -105,22 +157,35 @@ The UI is generated dynamically by iterating through this list and creating prod
 
 ---
 
-## Run the Project
+## Installation
+
+Clone the repository:
 
 ```bash
-# Navigate into the project
-cd product_showcase
+git clone https://github.com/yourusername/product_catalog.git
+```
 
-# Install dependencies
+Navigate to the project directory:
+
+```bash
+cd product_catalog
+```
+
+Install dependencies:
+
+```bash
 flutter pub get
+```
 
-# Run the app
+Run the application:
+
+```bash
 flutter run
 ```
 
 ---
 
-## Build Release APK
+# 📦 Build Release APK
 
 ```bash
 flutter build apk --release
@@ -128,29 +193,46 @@ flutter build apk --release
 
 ---
 
-# 🧠 Technologies Used
+# 🛠️ Technologies Used
 
-| Technology       | Purpose                   |
-|------------------|---------------------------|
-| Flutter          | UI Framework              |
-| Dart             | Programming Language      |
-| Material 3       | UI Design System          |
-| List             | Data Storage              |
-| ListView.builder | Dynamic UI Rendering      |
-| NetworkImage     | Load Images from Internet |
+| Technology       | Purpose                     |
+|------------------|-----------------------------|
+| Flutter          | Cross-platform UI Framework |
+| Dart             | Programming Language        |
+| REST API         | Product Data Source         |
+| HTTP Package     | API Communication           |
+| JSON             | Data Exchange Format        |
+| Material 3       | Modern UI Design            |
+| ListView.builder | Dynamic Rendering           |
+| NetworkImage     | Image Loading               |
 
 ---
 
-# 🎯 Assignment Details
+# 🎯 Assignment Information
 
-| Field        | Information                                       |
-|--------------|---------------------------------------------------|
-| Program      | bdapps National Android Development Bootcamp 2026 |
-| Assignment   | Flutter Product Listing App                       |
-| Topic        | Dynamic List Rendering                            |
-| Data Source  | Local Dart List                                   |
-| Image Source | Network URLs                                      |
-| UI Type      | Single Screen Application                         |
+| Field           | Details                                           |
+|-----------------|---------------------------------------------------|
+| Program         | bdapps National Android Development Bootcamp 2026 |
+| Assignment Type | Flutter Development                               |
+| Topic           | Product Listing Application                       |
+| Data Source     | REST API                                          |
+| Architecture    | Simple Layered Structure                          |
+| UI Type         | Single Screen                                     |
+| Design System   | Material 3                                        |
+
+---
+
+# 🎓 Learning Outcomes
+
+Through this project, the following Flutter concepts are demonstrated:
+
+* Consuming REST APIs
+* Working with asynchronous operations
+* Parsing JSON data
+* Building reusable widgets
+* Displaying dynamic content
+* Creating responsive UIs
+* Managing loading and error states
 
 ---
 
@@ -158,24 +240,30 @@ flutter build apk --release
 
 <div align="center">
 
-### Md Shahajalal Mahmud
+## Md Shahajalal Mahmud
 
 **Android Developer • Flutter Learner**
 
-*Learning, Building, Growing 🚀*
+Passionate about building modern mobile applications using Flutter, Kotlin, Jetpack Compose, and Firebase.
+
+🚀 Learning • Building • Improving
 
 </div>
 
 ---
 
-# 💙 Acknowledgements
+# 🙏 Acknowledgements
 
-Special thanks to the mentors and organizers of the **National Android Development Bootcamp (NADB) 2026** for providing structured learning opportunities and hands-on assignments for aspiring developers.
+Special thanks to the mentors and organizers of the **bdapps National Android Development Bootcamp 2026** for providing practical learning opportunities and hands-on development assignments.
 
 ---
 
 <div align="center">
 
-📜 **Educational Project • NADB 2026**
+### 📚 Educational Project
+
+**National Android Development Bootcamp 2026**
+
+Made with ❤️ using Flutter
 
 </div>
